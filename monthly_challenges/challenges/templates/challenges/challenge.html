@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'challenges/shared/header.css' %}">
+    <link rel="stylesheet" href="{% static 'challenges/challenge.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>Monthly Challenge</h1>
+    <h2>{{ month_name | title }} month's Challenge</h2>
+    {% if challenge is not None %}
+        <p>{{ challenge }}</p>
+    {% else %}
+        <p class="fallback">No challenge available for this month.</p>
+    {% endif %}
+    <a href="{% url 'all-challenges' %}">Back to all challenges</a>
+{% endblock %}
